@@ -1,0 +1,26 @@
+ .posts {
+    width: 100%;
+    // background: var(--primary-color);
+
+    h1 {
+        text-align: center;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        font-size: 2.2rem;
+    }
+
+    .postsBody{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem 0rem 1rem 3rem;
+        // margin: 20px;
+        // background: pink;
+    }
+
+     .article {
+        width: 350px;
+        margin-right: 2rem;
+        margin-bottom: 2rem;  
+     }
+ }

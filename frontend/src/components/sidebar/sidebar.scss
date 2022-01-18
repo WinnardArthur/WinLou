@@ -1,0 +1,110 @@
+@import '../../index.scss';
+
+.sidebar {
+    width: 100%;
+    max-width: 20rem;
+    height: 100vh;
+    background-color: $primary-color;
+    color: $primary-text-color;
+    border-radius: 10px;
+    position: relative;
+    overflow-y: scroll;
+    position: sticky;
+    top: 3rem;
+    
+    &::-webkit-scrollbar {
+        width: .5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $primary-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $secondary-color;
+        border-radius: 1rem;
+    }
+
+    .sidebarContent {
+        // background: red;
+        // height: 100%;   
+        // position: sticky;
+        // top: 0;
+        padding-bottom: 1rem; 
+
+        .sidebarItem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .sidebarTitle {
+                margin: 10px;
+                padding: 5px; 
+                width: 80%;
+                border-top: 1px solid $primary-text-color;
+                border-bottom: 1px solid $primary-text-color;
+                font-family: 'Varela Round', sans-serif;
+                font-size: 1.1rem;
+                color: $primary-text-color;
+                font-weight: 500;
+                line-height: 20px;
+                text-align: center;
+            }
+
+            img {
+                margin-top: 15px;
+                width: 90%;
+            }
+
+            p {
+                padding: 30px;
+            }
+            
+            .sidebarList {
+                list-style: none;
+                margin-bottom: 30px;
+                // background: green;
+                width: 100%;
+            }
+
+            .sidebarListItem {                
+                // background: blue;
+                cursor: pointer;
+                text-align: center;
+                padding: 1rem 0;
+                transition: .3s ease-in-out;
+                color: white;
+
+                &:hover {
+                    border-radius: 5px;
+                    background: $secondary-color;
+                    color: $secondary-text-color;
+                }
+            }
+
+            .sidebarSocial {
+                margin-top: 15px;
+                width: 250px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .sidebar-icon {
+                font-size: 15px;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    
+}
+
+
+
+
+
+
+
+
