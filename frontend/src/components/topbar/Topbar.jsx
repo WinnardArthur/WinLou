@@ -8,7 +8,7 @@ export default function Topbar() {
     console.log('userInfo', userInfo)
     const dispatch = useDispatch();
     
-    const PF = 'http://localhost:5000/images/';
+    const PF = 'https://winlou-blog.onrender.com/images/';
 
     const handleLogout = () => {
         localStorage.removeItem('userInfo')

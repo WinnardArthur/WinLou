@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './post.scss';
 
 export default function Post({ post }) {
-    const PF = "http://localhost:5000/images/";
+    const PF = "https://winlou-blog.onrender.com/images/";
 
     return (
         <div className="post">

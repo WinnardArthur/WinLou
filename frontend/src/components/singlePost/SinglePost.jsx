@@ -8,12 +8,14 @@ import { useSelector } from 'react-redux';
 export default function SinglePost() {
     const location = useLocation()
     const path = (location.pathname.split("/")[2])
-    const PF = "http://localhost:5000/images/";
     const [post, setPost] = useState({})
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [updateMode, setUpdateMode] = useState(false);
     const { user } = useSelector(state => state.user.userInfo)
+    
+    
+    const PF = "https://winlou-blog.onrender.com/images/";
 
     useEffect(() => {
         const getPost = async () => {

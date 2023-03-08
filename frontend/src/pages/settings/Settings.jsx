@@ -5,7 +5,7 @@ import './settings.css';
 
 export default function Settings() {
 
-    const PF = "http://localhost:5000/images/"
+    const PF = "https://winlou-blog.onrender.com/images/"
 
     const [file, setFile] = useState(null);
     const [username, setUsername] = useState("");
