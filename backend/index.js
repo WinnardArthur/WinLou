@@ -13,18 +13,13 @@ dotenv.config();
 app.use(express.json())
 app.use('/images', express.static(path.join(__dirname, "/images")))
 
-// mongoose.connect(process.env.MONGO_URL, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-// }).then(console.log("Connected to WinLou-Blog database"))
-//     .catch(err => {
-//         console.log(err)
-//     })
-
-mongoose.connect(process.env.MONGO_URL_LOCAL, {
+mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}).then(console.log("Connected to Winlou-Blog database locally"))
+}).then(console.log("Connected to WinLou-Blog database"))
+    .catch(err => {
+        console.log(err)
+    })
 
 
 const storage = multer.diskStorage({
@@ -46,6 +41,20 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 // app.use("/api/categories", categoryRoute);
+
+// Production
+if(process.env.NODE_ENV === 'production') {
+    const __dirname = path.resolve();
+
+    app.use(express.static(path.join(__dirname, "/frontend/build")))
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+    })
+} else {
+    app.get('/', (req, res) => res.send('API running successfully...'))
+}
+
 
 app.listen("5000", () => {
     console.log("Backend is running")
