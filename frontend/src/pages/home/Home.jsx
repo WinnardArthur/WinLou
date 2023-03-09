@@ -7,13 +7,13 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import { useLocation } from 'react-router-dom';
 
 
-export default function Home({ categories }) {
+export default function Home() {
 
     const [posts, setPosts]= useState([]);
     const location = useLocation()
     const search = location.search
+    
     console.log('search', search)
-    // const [category, setCategory] = useState({})
 
 
     useEffect(() => {

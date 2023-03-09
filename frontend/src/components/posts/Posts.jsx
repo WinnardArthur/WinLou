@@ -23,6 +23,7 @@ export default function Posts({posts}) {
     console.log(queryName)
 
     console.log('pathname', search)
+    console.log('posts', posts)
 
     // const category = useSelector(state => state.categories.activeCategory)
 
@@ -38,7 +39,7 @@ export default function Posts({posts}) {
             <div className="postsBody">
                 {
                     posts.length > 0 ? 
-                    posts?.map((p, i) => (
+                    posts.length > 0 && posts?.map((p, i) => (
                         <>
                         {/* {
                             queryName === '?category' ?
