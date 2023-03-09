@@ -9,8 +9,10 @@ export const LoginUser = async (user, dispatch) => {
         
         localStorage.setItem('userInfo', JSON.stringify(res.data))
         dispatch(loginSuccess(res.data))
-        window.location.replace('/')
+        console.log('res', res.data)
+        res.data && window.location.replace('/')
     } catch (err) {
+        console.log('err', err?.response?.data?.message)
         dispatch(loginError());
     }
 }

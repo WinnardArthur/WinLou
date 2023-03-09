@@ -33,7 +33,7 @@ export default function Sidebar() {
                     <span className="sidebarTitle">ABOUT ME</span>
                     <img src="/images/austin.jpg" alt="user" />
                     <p>
-                        Louisa Takyiwaa Tutu
+                        Pascal Illoris
                     </p>
                 </div>
 
@@ -43,7 +43,7 @@ export default function Sidebar() {
                     {categories.map((c) => (
                         <div key={c.id}>
                             <Link
-                                to={`/?category=${c.category.toLowerCase()}`} 
+                                to={`/?category=${c.category}`} 
                                 className="link"
                                 onClick={handleCategory}
                                 >

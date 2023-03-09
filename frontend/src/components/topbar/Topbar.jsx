@@ -8,7 +8,7 @@ export default function Topbar() {
     console.log('userInfo', userInfo)
     const dispatch = useDispatch();
     
-    const PF = 'https://winlou-blog.onrender.com/images/';
+    const PF = 'https://winlou-blog.onrender.com/images';
 
     const handleLogout = () => {
         localStorage.removeItem('userInfo')
@@ -46,10 +46,7 @@ export default function Topbar() {
                 {userInfo.username !== '' ?
                     <Link to="/settings" className='userInfo'>
                         {
-                            !userInfo.profile.length  ?
-                                <img src={PF + `parrish-freeman-tPnAS7eG8Zk-unsplash.jpg`} alt="" className="topImg"/>  
-                                :
-                                <img src={PF + userInfo.profile} alt="" className="topImg"/>  
+                            <img src={`${PF}/${userInfo.profile}`} alt="topImage" onLoad={() => console.log('Loaded')} onError={(e) => e.target.src='https://images.unsplash.com/photo-1585994672551-ea9160cc4441?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGJhY2tncm91ZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'}/>
                         }
                         <h5>{userInfo.username} </h5>            
                     </Link>

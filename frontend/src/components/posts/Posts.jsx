@@ -3,11 +3,23 @@ import Post from '../post/Post';
 import Loader from '../loader/Loader';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 export default function Posts({posts}) {
     const {search } = useLocation()
     const queryName = search.split('=')[0]
     const queryValue = search.split('=')[1]
+    const [doneLoading, setDoneLoading] = useState(false);
+
+    useEffect(() => {
+        setDoneLoading(false);
+        let loadingTimeout = setTimeout(() => {
+            setDoneLoading(true)
+        }, 6000)
+
+        return () => clearTimeout(loadingTimeout)
+    }, [posts, queryName])
+
     console.log(queryName)
 
     console.log('pathname', search)
@@ -24,10 +36,8 @@ export default function Posts({posts}) {
                 (<h1>Recent Articles</h1>)
             }
             <div className="postsBody">
-                {console.log('posts', posts.length)}
                 {
-                    
-                    posts.length !== 0 ? 
+                    posts.length > 0 ? 
                     posts?.map((p, i) => (
                         <>
                         {/* {
@@ -46,7 +56,9 @@ export default function Posts({posts}) {
                         </>
                     )) 
                     : 
-                    <Loader />
+                    <>
+                        {doneLoading ? <h3 className='no-post'>Sorry, no post found...</h3> : <Loader />}
+                    </>
                 }
             </div>
         </div>
