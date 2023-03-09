@@ -2,13 +2,14 @@ import './topbar.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../redux/userSlice';
+import { baseUrl } from '../../constants';
 
 export default function Topbar() {
     const {userInfo} = useSelector(state => state.user)
     console.log('userInfo', userInfo)
     const dispatch = useDispatch();
     
-    const PF = 'https://winlou-blog.onrender.com/images';
+    const PF = `${baseUrl}/images`;
 
     const handleLogout = () => {
         localStorage.removeItem('userInfo')

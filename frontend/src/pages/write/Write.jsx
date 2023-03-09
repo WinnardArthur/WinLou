@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react'
 import { useSelector } from 'react-redux';
+import { baseUrl } from '../../constants';
 import './write.scss'
 
 export default function Write() {
@@ -32,14 +33,14 @@ export default function Write() {
             data.append("file", file)
             newPost.photo = filename;
             try {
-                await axios.post("/upload", data)
+                await axios.post(`${baseUrl}/upload`, data)
             } catch (err) {
                 console.log(err)
             }
         }
 
         try {
-          const res = await axios.post("/posts", newPost)            
+          const res = await axios.post(`${baseUrl}/posts`, newPost)            
           window.location.replace("/posts/"+res.data._id)
         } catch (err) {
             console.log(err)

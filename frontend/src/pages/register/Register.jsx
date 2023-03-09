@@ -2,6 +2,7 @@ import './register.scss';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import { baseUrl } from '../../constants';
 
 export default function Register() {
     const [username, setUsername] = useState('');
@@ -36,7 +37,7 @@ export default function Register() {
         }
 
         try {
-            const res = await axios.post('/auth/register', newUser)
+            const res = await axios.post(`${baseUrl}/auth/register`, newUser)
             res.data && window.location.replace("/login")
         }
          catch(err) {

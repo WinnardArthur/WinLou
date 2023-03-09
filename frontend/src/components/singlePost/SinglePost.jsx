@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import './singlePost.scss';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { baseUrl } from '../../constants';
 
 export default function SinglePost() {
     const location = useLocation()
@@ -15,11 +16,11 @@ export default function SinglePost() {
     const { user } = useSelector(state => state.user.userInfo)
     
     
-    const PF = "https://winlou-blog.onrender.com/images/";
+    const PF = `${baseUrl}/images/`;
 
     useEffect(() => {
         const getPost = async () => {
-            const res = await axios.get("/posts/" + path);
+            const res = await axios.get(`${baseUrl}/posts/` + path);
             setPost(res.data);
             setTitle(res.data.title)
             setDesc(res.data.desc)
@@ -29,20 +30,20 @@ export default function SinglePost() {
 
     const handleDelete = async () => {
         try {
-            await axios.delete("/posts/"+ path, {
+            await axios.delete(`${baseUrl}/posts/`+ path, {
                 data: {username: user.username}
             }
             )
             window.location.replace("/"); 
         }
         catch (err) {
-
+            console.log('err', err)
         }
     }
     
     const handleUpdate = async () => {
         try {
-            await axios.put(`/posts/${post._id}`, {
+            await axios.put(`${baseUrl}/posts/${post._id}`, {
                 username: user.username, title, desc
             })
             setUpdateMode(false)

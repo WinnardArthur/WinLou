@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../../constants';
 import './post.scss';
 
 export default function Post({ post }) {
-    const PF = "https://winlou-blog.onrender.com/images/";
+    const PF = `${baseUrl}/images/`;
 
     return (
         <div className="post">

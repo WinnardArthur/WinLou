@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react'
 import { useSelector } from 'react-redux';
+import { baseUrl } from '../../constants';
 import './settings.css';
 
 export default function Settings() {
 
-    const PF = "https://winlou-blog.onrender.com/images/"
+    const PF = `${baseUrl}/images/`
 
     const [file, setFile] = useState(null);
     const [username, setUsername] = useState("");

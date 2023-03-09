@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCategory } from '../../redux/categorySlice';
+import { baseUrl } from '../../constants';
 
 
 export default function Sidebar() {
@@ -17,7 +18,7 @@ export default function Sidebar() {
 
     useEffect(() => {
         const getCats = async () => {
-            const res = await axios.get('/categories')
+            const res = await axios.get(`${baseUrl}/categories`)
             setCats(res.data)
             console.log('cat', cats)
         }
