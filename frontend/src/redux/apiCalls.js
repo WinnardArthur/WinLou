@@ -1,11 +1,12 @@
 import axios from "axios";
+import { baseUrl } from "../constants";
 import { loginStart, loginSuccess, loginError } from "./userSlice";
 
 
 export const LoginUser = async (user, dispatch) => {
     dispatch(loginStart());
     try {
-        const res = await axios.post('/auth/login', user)
+        const res = await axios.post(`${baseUrl}/api/auth/login`, user)
         
         localStorage.setItem('userInfo', JSON.stringify(res.data))
         dispatch(loginSuccess(res.data))

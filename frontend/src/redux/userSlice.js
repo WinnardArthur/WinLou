@@ -1,16 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const user = JSON.parse(localStorage.getItem('userInfo'))
-console.log('USER', user)
 
 export const userSlice = createSlice({
     name: "user",
     initialState: {
-        userInfo: {
-            username: user && user.username || "",
-            email: user && user.email || "",
-            profile: user && user.profile || ""
-        },
+        userInfo: user ? user : "",
         pending: false,
         error: false
     }, 

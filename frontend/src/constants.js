@@ -1,1 +1,1 @@
-export const baseUrl = 'https://winlou-blog.onrender.com';
+export const baseUrl = process.env.NODE_ENV === 'production' ? 'https://winlou-blog.onrender.com' : 'http://localhost:5000';

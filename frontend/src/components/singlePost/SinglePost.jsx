@@ -13,14 +13,14 @@ export default function SinglePost() {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [updateMode, setUpdateMode] = useState(false);
-    const { user } = useSelector(state => state.user.userInfo)
+    const user  = useSelector(state => state.user.userInfo)
     
     
     const PF = `${baseUrl}/images/`;
 
     useEffect(() => {
         const getPost = async () => {
-            const res = await axios.get(`${baseUrl}/posts/` + path);
+            const res = await axios.get(`${baseUrl}/api/posts/` + path);
             setPost(res.data);
             setTitle(res.data.title)
             setDesc(res.data.desc)
@@ -30,7 +30,7 @@ export default function SinglePost() {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`${baseUrl}/posts/`+ path, {
+            await axios.delete(`${baseUrl}/api/posts/`+ path, {
                 data: {username: user.username}
             }
             )
@@ -43,7 +43,7 @@ export default function SinglePost() {
     
     const handleUpdate = async () => {
         try {
-            await axios.put(`${baseUrl}/posts/${post._id}`, {
+            await axios.put(`${baseUrl}/api/posts/${post._id}`, {
                 username: user.username, title, desc
             })
             setUpdateMode(false)
@@ -51,6 +51,8 @@ export default function SinglePost() {
 
         }
     }
+
+    console.log('u', user)
     return (
         <div className="singlePost">
             <div className="singlePostWrapper">

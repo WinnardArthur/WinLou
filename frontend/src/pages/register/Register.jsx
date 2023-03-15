@@ -37,7 +37,7 @@ export default function Register() {
         }
 
         try {
-            const res = await axios.post(`${baseUrl}/auth/register`, newUser)
+            const res = await axios.post(`${baseUrl}/api/auth/register`, newUser)
             res.data && window.location.replace("/login")
         }
          catch(err) {

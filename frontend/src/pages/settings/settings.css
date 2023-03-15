@@ -37,10 +37,15 @@
 }
 
 .settingsPP > img {
-    width: 70px;
-    height: 70px;
-    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     object-fit: cover;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 0 0 5px -2px rgba(0, 0, 0, .3);
 }
 
 .settingsPPIcon {

@@ -7,10 +7,13 @@ const authRoute = require('./routes/auth')
 const userRoute = require('./routes/users')
 const postRoute = require('./routes/posts')
 const categoryRoute = require('./routes/categories')
-const path = require('path')
+const path = require('path');
+const cors = require('cors');
+const port = process.env.PORT || 5000;
 
 dotenv.config();
-app.use(express.json())
+app.use(express.json());
+app.use(cors())
 app.use('/images', express.static(path.join(__dirname, "/images")))
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -56,7 +59,7 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 
-app.listen("5000", () => {
+app.listen(port, () => {
     console.log("Backend is running")
 })
 
