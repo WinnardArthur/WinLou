@@ -58,10 +58,10 @@ function App() {
         <Topbar />
         <Switch>
           <Route exact path="/"><Home categories={categories}/></Route>
-          <Route path="/register">{userInfo.username !== '' ? <Home /> : <Register />}</Route>
-          <Route path="/login">{userInfo.username !== '' ? <Home /> : <Login />}</Route>
-          <Route path="/write">{userInfo.username !== '' ? <Write /> : <Register />}</Route>
-          <Route path="/settings">{userInfo.username !== '' ? <Settings /> : <Register />}</Route>
+          <Route path="/register">{userInfo?.username ? <Home /> : <Register />}</Route>
+          <Route path="/login">{userInfo?.username  ? <Home /> : <Login />}</Route>
+          <Route path="/write">{userInfo?.username ? <Write /> : <Register />}</Route>
+          <Route path="/settings">{userInfo?.username ? <Settings /> : <Register />}</Route>
           <Route path="/posts/:postId"><Single /></Route>
         </Switch>
       </ Router>

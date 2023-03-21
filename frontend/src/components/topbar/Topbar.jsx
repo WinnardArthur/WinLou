@@ -39,12 +39,12 @@ export default function Topbar() {
                         <Link to="/write" className="link">WRITE</Link> 
                     </li>
                     <li className="topListItem" onClick={handleLogout}>
-                        {userInfo.username !== '' && "LOGOUT"}
+                        {userInfo?.username && "LOGOUT"}
                     </li>
                 </ul>
             </div>
             <div className="topRight">
-                {userInfo.username !== '' ?
+                {userInfo?.username ?
                     <Link to="/settings" className='userInfo'>
                         {
                             <img src={`${PF}/${userInfo.profile}`} alt="topImage" onError={(e) => e.target.src='https://images.unsplash.com/photo-1585994672551-ea9160cc4441?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGJhY2tncm91ZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'}/>

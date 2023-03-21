@@ -30,7 +30,7 @@ export default function Register() {
             console.log("data 2", data)
             newUser.profile = filename;
             try {
-                await axios.post('/upload', data)
+                await axios.post(`${baseUrl}/api/upload`, data)
             } catch (err) {
                 console.log(err)
             }

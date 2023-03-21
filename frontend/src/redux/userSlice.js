@@ -5,7 +5,7 @@ const user = JSON.parse(localStorage.getItem('userInfo'))
 export const userSlice = createSlice({
     name: "user",
     initialState: {
-        userInfo: user ? user : "",
+        userInfo: user ? user : {},
         pending: false,
         error: false
     }, 
